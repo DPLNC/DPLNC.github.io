@@ -1,27 +1,13 @@
-# DPLNC GitHub Pages build
+# DPLNC GitHub Pages build — footer fixed
 
-Included:
-- SEO meta tags, canonical URL, Open Graph image
-- robots.txt and sitemap.xml for Google / Naver registration
-- CNAME for GitHub Pages custom domain: www.dplnc.com
-- Privacy policy and Terms pages
-- Footer with business, office and service information area
+수정 내용:
+- 푸터가 왼쪽 밖으로 밀리거나 하단에 겹쳐 보이는 문제 수정
+- `.site-footer`를 문서 흐름 안에서 자연스럽게 내려오도록 고정
+- 호스팅 제공자 문구 제거
+- 사업자정보확인 링크에 사업자등록번호 파라미터 적용
+- 개인정보처리방침 / 이용약관 내부 링크를 `index.html#...` 형태로 수정하여 로컬 파일 경로 오류 완화
 
-Important:
-- Replace `대표자: 입력 필요` and `사업자등록번호: 입력 필요` in `index.html` before publishing.
-- If you sell or take online payments, add 통신판매업신고번호 and detailed terms.
-
-Update:
-- Fixed Index panel overflow issue where the hidden menu text could appear while scrolling on wide/short browser ratios.
-
-
-FTC link note:
-- The old bare `https://www.ftc.go.kr/bizCommPop.do` link was replaced because it returns an error without a business registration number parameter.
-- For a direct popup link, use `https://www.ftc.go.kr/bizCommPop.do?wrkr_no=YOUR_BUSINESS_NUMBER_WITHOUT_HYPHENS`.
-- If DPLNC is not a mail-order/online sales business, the FTC mail-order seller lookup link may be unnecessary.
-
-- Legal pages use relative navigation links, so local preview will not jump to file:///C:/.
-
-
-SEO update:
-- Added Korean brand name `디피엘앤씨` to title, description, Open Graph, schema alternateName, About text, and footer for Korean search matching.
+업로드:
+1. 이 ZIP 압축을 풀고 안의 파일들을 GitHub 저장소 루트에 그대로 업로드합니다.
+2. 기존 파일은 같은 이름으로 덮어씁니다.
+3. assets 폴더의 이미지는 기존 GitHub 저장소에 그대로 유지해야 합니다.

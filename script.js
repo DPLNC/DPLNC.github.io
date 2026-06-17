@@ -1,23 +1,27 @@
 gsap.registerPlugin(ScrollTrigger);
 
 const cursor = document.querySelector(".cursor");
-window.addEventListener("mousemove", e => {
-  gsap.to(cursor, {x:e.clientX, y:e.clientY, duration:.18, ease:"power2.out"});
-});
+if (cursor) {
+  window.addEventListener("mousemove", e => {
+    gsap.to(cursor, {x:e.clientX, y:e.clientY, duration:.18, ease:"power2.out"});
+  });
+}
 
 const indexBtn = document.querySelector(".index-btn");
 const indexPanel = document.querySelector(".index-panel");
 const closeIndex = document.querySelector(".close-index");
-const toggleIndex = (open) => {
-  indexPanel.classList.toggle("open", open);
-  document.body.classList.toggle("menu-open", open);
-  indexPanel.setAttribute("aria-hidden", String(!open));
-  indexBtn.setAttribute("aria-expanded", String(open));
-};
-indexBtn.addEventListener("click", () => toggleIndex(true));
-closeIndex.addEventListener("click", () => toggleIndex(false));
-indexPanel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleIndex(false)));
-window.addEventListener("keydown", e => { if(e.key === "Escape") toggleIndex(false); });
+if (indexBtn && indexPanel && closeIndex) {
+  const toggleIndex = (open) => {
+    indexPanel.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    indexPanel.setAttribute("aria-hidden", String(!open));
+    indexBtn.setAttribute("aria-expanded", String(open));
+  };
+  indexBtn.addEventListener("click", () => toggleIndex(true));
+  closeIndex.addEventListener("click", () => toggleIndex(false));
+  indexPanel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleIndex(false)));
+  window.addEventListener("keydown", e => { if(e.key === "Escape") toggleIndex(false); });
+}
 
 window.addEventListener("load", () => {
   gsap.to(".loader", {autoAlpha:0, duration:.85, delay:.25, ease:"power2.out"});
